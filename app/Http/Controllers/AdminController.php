@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -91,4 +92,5 @@ class AdminController extends Controller
         $product->save();
         return redirect('/admin-products')->with('message', 'Product Updated Successfully!');
     }
+    
 }

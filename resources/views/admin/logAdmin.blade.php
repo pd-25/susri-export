@@ -6,7 +6,7 @@
         <div class="logo-admin d-flex justify-content-center align-items-center mt-3">
             <img src="https://cdn.sanity.io/images/kts928pd/production/b46a6970cc0f064f5ba5d6370077c7f2e18dbb0f-1200x630.png" class="rounded" alt="logo" width="280px">
         </div>
-        <form action="" class="admin-login-form d-flex  flex-column" method="post">
+        <form action="/loginadmin" method="POST" class="admin-login-form d-flex  flex-column">
             @csrf
             <label for="username" class="label-class" style="font-weight: 600; font-size:1.2rem">Username</label>
             <input class="adminlogin-input" type="text" id="username" name="username" placeholder="Enter Username" required /><br />
@@ -23,7 +23,7 @@
         </form>
 
         <div class="social-media-container d-flex flex-column justify-content-around align-items-center">
-             <h4 class="with">Or Login With Social Media</h4>
+            <h4 class="with mt-3">Or Login With Social Media</h4>
             <div class="list-unstyled social-icons-admin-login d-flex justify-content-around">
                 <li class="rounded"><i class="fa-brands fa-facebook"></i></li>
                 <li class="rounded"><i class="fa-brands fa-x-twitter"></i></li>
