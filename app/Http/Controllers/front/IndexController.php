@@ -2,29 +2,34 @@
 
 namespace App\Http\Controllers\front;
 
+use App\Models\Product;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         return view('front.index');
     }
 
-    public function aboutUs() {
+    public function aboutUs()
+    {
         return view('front.aboutus');
     }
-    public function ourProducts() {
+
+    public function ourProducts()
+    {
+        $products = Product::all();
+        return view('products.products', compact('products'));
         return view('products.products');
     }
-    public function singleProductt() {
-        return view('products.singleProduct');
-    }
-    public function adminlogin() {
-        return view('admin.adminlogin');
-    }
-    public function adminPanel() {
-        return view('admin.adminpanel');
+
+    public function singleproduct($id)
+    {
+        $product = Product::find($id);
+        return view('singleproduct', compact('product'));
     }
     
 }

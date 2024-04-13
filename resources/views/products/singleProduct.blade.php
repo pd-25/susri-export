@@ -18,25 +18,19 @@
             <div class="col-lg-6">
                 <div id="demo-pranab">
                     <div id="owl-single-product" class="owl-carousel owl-theme">
+                        @foreach($products as $product)
                         <div class="item">
-                            <img src="{{asset('front/images/inn-about-pic1')}}" class="img-fluid">
+                            <img src="{{ asset('uploads/products/'.$product->image) }}" class="img-fluid">
+                            <a href="{{ route('front.singleProduct', ['id' => $product->id]) }}" class="banner-btn">View Details</a>
                         </div>
-                        <div class="item">
-                            <img src="{{asset('front/images/inn-about-pic2.jpg')}}" class="img-fluid">
-                        </div>
-                        <div class="item">
-                            <img src="{{asset('front/images/inn-about-pic3.jpg')}}" class="img-fluid">
-                        </div>
-                        <div class="item">
-                            <img src="{{asset('front/images/inn-about-pic4.jpg')}}" class="img-fluid">
-                        </div>
+                        @endforeach
                     </div>
 
                 </div>
             </div>
             <div class="col-lg-6 single-pro-ctnbox">
-                <h3 class="mb-4">Sheep Leather Gloves</h3>
-                <h4>Product Description</h4>
+                <h3 class="mb-4">{{$product->name}}</h3>
+                <h4>{{$product->description}}</h4>
                 <hr>
                 <p>Mauris congue turpis lacinia lorem efficitur venenatis eget in odio. Integer sed malesuada massa.
                     Pellentesque tellus magna, iaculis ut tempor eget, fermentum non ligula. Cras mauris nisi,
@@ -51,7 +45,7 @@
                 <hr>
                 <p class="pro-size"><span>7</span> - <span>10</span></p>
                 <hr>
-                <p class="hotel-pTag">₹3,500</p>
+                <p class="hotel-pTag">₹{{$product->price}}</p>
                 <a href="" class="banner-btn" data-toggle="modal" data-target="#exampleModal">Enquire Now</a>
 
 
