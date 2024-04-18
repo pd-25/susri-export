@@ -21,6 +21,11 @@ class IndexController extends Controller
     {
         return view('front.aboutus');
     }
+    public function contactUs()
+    {
+        return view('front.contactus');
+    }
+    
 
     public function contactUs()
     {

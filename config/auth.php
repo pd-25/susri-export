@@ -41,8 +41,8 @@ return [
             'provider' => 'users',
         ],
         'admin' => [
-            'driver' => 'session', // You can use 'session' or 'token' depending on your needs
-            'provider' => 'admins', // This should match the name of the provider you define below
+            'driver' => 'session',
+            'provider' => 'admins',
         ],
     ],
 
@@ -68,9 +68,9 @@ return [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
         ],
-        'admin' => [
+        'admins' => [
             'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL', App\Models\User::class),
+            'model' => App\Models\Admin::class,
         ],
 
         // 'users' => [
