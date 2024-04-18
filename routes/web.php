@@ -15,6 +15,9 @@ Route::get('/product/{id}', [IndexController::class, 'singleproduct']);
 
 
 Route::get('/admin/login', [IndexController::class, 'adminlogin'])->name('admin.logAdmin');
+Route::post('/admin/login', [AdminController::class, 'login'])->name('admin.login');
+
+
 
 
 
@@ -22,10 +25,11 @@ Route::get('/admin/login', [IndexController::class, 'adminlogin'])->name('admin.
 //admin routes --------------------->
 // Route::middleware([Admin::class])->group(function () {
     Route::group(['middleware'=>'admin'],function(){
-    Route::get('/admin', [AdminController::class, 'index']);
+    Route::get('/admin-dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin-products', [AdminController::class, 'productsAdmin']);
     Route::get('delete-product/{id}', [AdminController::class, 'deleteProduct'])->name('delete.product');
     Route::post('/addnew-product', [AdminController::class, 'addnewProduct']);
+    Route::get('log-out', [AdminController::class, 'adminLogout'])->name('admin.logout');
     Route::post('/update-product', [AdminController::class, 'updateProduct']);
 });
 

@@ -376,7 +376,7 @@
             </a>
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Logout </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('admin.logout') }}"> Logout </a></li>
                 <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Profile </a></li>
               </ul>
             </div>

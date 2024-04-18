@@ -95,24 +95,52 @@ class AdminController extends Controller
     }
 
 
-    public function login(Request $request)
-    {
-        // Validate login credentials
-        $credentials = $request->validate([
-            'name' => 'required',
+    // public function login(Request $request)
+    // {
+    //     // Validate login credentials
+    //     $credentials = $request->validate([
+    //         'email' => 'required|email',
+    //         'password' => 'required',
+    //     ]);
+    
+    //     // Attempt to authenticate admin
+    //     if (auth()->attempt($credentials)) {
+    //         // Authentication successful
+    //         return redirect()->route('admin.dashboard');
+    //     }
+    // dd('Failed Login');
+    //     // Authentication failed
+    //     return redirect()->route('admin.logAdmin');
+    // }
+    
+
+
+    public function login( Request $request ) {
+       
+        $request->validate([
+            'email' => 'required|email',
             'password' => 'required',
         ]);
-    
-        // Attempt to authenticate admin
-        if (auth()->attempt($credentials)) {
-            // Authentication successful
+        try {
+            $data = $request->all();
+        if(Auth::guard('admin')->attempt(["email" => $data["email"], "password" => $data["password"]])){
             return redirect()->route('admin.dashboard');
         }
-    
-        // Authentication failed
-        return back()->withErrors(['name' => 'Invalid credentials']);
+        else
+        {
+            return back()->with("msg", "Invalid credentials");
+        }
+        } catch (\Throwable $th) {
+            // throw $th;
+            return back()->with("msg", throw $th);
+        }
+        
     }
-    
+
+    public function adminLogout() {
+        Auth::guard('admin')->logout();
+        return redirect()->route('admin.login')->with("msg", "Logged out successfully");
+    }
     
     
 }
