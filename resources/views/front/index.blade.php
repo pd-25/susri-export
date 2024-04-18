@@ -10,7 +10,7 @@
                         <h1>Hand Gloves</h1>
                         <p class="banner-ctn">Susri Trading and Export, your reliable source for top-quality industrial
                             hand protection solutions.</p>
-                        <a href="" class="banner-btn">Contact Us</a>
+                        <a href="{{route('front.contact-us')}}" class="banner-btn">Contact Us</a>
                     </div>
                 </div>
 
@@ -52,7 +52,7 @@
                             providing reliable and durable hand protection solutions.</p>
                         <p class="sign-txt">Mr. Subash Sardar</p>
                         <p class="desc-txt">(Founder)</p>
-                        <a href="" class="banner-btn">Read More</a>
+                        <a href="{{route('front.about-us')}}" class="banner-btn">Read More</a>
                     </div>
                 </div>
             </div>
@@ -172,7 +172,7 @@
             <div class="row mt-5">
                 <div class="col-lg-12">
                     <h2>We will send you the Best Price shortly</h2>
-                    <a href="" class="banner-btn">Get Instant Quote</a>
+                    <a href="{{route('front.contact-us')}}" class="banner-btn">Get Instant Quote</a>
                 </div>
             </div>
         </div>
