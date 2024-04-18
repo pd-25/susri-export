@@ -13,7 +13,8 @@ class IndexController extends Controller
 {
     public function index()
     {
-        return view('front.index');
+        $products = Product::all();
+        return view('front.index',compact('products'));
     }
 
     public function aboutUs()
@@ -30,7 +31,7 @@ class IndexController extends Controller
     {
         $products = Product::all();
         return view('products.products', compact('products'));
-        return view('products.products');
+        // return view('products.products');
     }
 
     public function show($id)

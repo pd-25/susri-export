@@ -72,62 +72,19 @@
                 <div class="col-lg-12 mb-4">
                     <div id="demo-pranab">
                         <div id="owl-product" class="owl-carousel owl-theme">
+                            @foreach ($products as $product)
                             <div class="item">
                                 <div class="product-box">
                                     <div class="product-box-img">
-                                        <img src="{{asset('front/images/pro-img.jpg')}}" class="img-fluid">
+                                        <img src="{{ asset('uploads/products/'.$product->image) }}" class="img-fluid">
                                     </div>
                                     <div class="product-box-ctn">
-                                        <h4>Sheep Leather Gloves</h4>
-                                        <a href="" class="rm-btn-sm">View Details</a>
+                                        <h4>{{$product->name}}</h4>
+                                        <a href="{{ route('products.show', $product->id) }}" class="rm-btn-sm">View Details</a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="item">
-                                <div class="product-box">
-                                    <div class="product-box-img">
-                                        <img src="{{asset('front/images/pro-img.jpg')}}" class="img-fluid">
-                                    </div>
-                                    <div class="product-box-ctn">
-                                        <h4>Sheep Leather Gloves</h4>
-                                        <a href="" class="rm-btn-sm">View Details</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-box">
-                                    <div class="product-box-img">
-                                        <img src="{{asset('front/images/pro-img.jpg')}}" class="img-fluid">
-                                    </div>
-                                    <div class="product-box-ctn">
-                                        <h4>Sheep Leather Gloves</h4>
-                                        <a href="" class="rm-btn-sm">View Details</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-box">
-                                    <div class="product-box-img">
-                                        <img src="{{asset('front/images/pro-img.jpg')}}" class="img-fluid">
-                                    </div>
-                                    <div class="product-box-ctn">
-                                        <h4>Sheep Leather Gloves</h4>
-                                        <a href="" class="rm-btn-sm">View Details</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-box">
-                                    <div class="product-box-img">
-                                        <img src="{{asset('front/images/pro-img.jpg')}}" class="img-fluid">
-                                    </div>
-                                    <div class="product-box-ctn">
-                                        <h4>Sheep Leather Gloves</h4>
-                                        <a href="" class="rm-btn-sm">View Details</a>
-                                    </div>
-                                </div>
-                            </div>
-
+                            @endforeach
                         </div>
 
                     </div>
