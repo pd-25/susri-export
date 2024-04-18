@@ -58,7 +58,7 @@
                             <li><a href="{{route('front.home')}}">Home</a></li>
                             <li><a href="{{route('front.about-us')}}">About Us</a></li>
                             <li><a href="{{route('products')}}">Product</a></li>
-                            <li><a href="contact-us.html">Contact Us</a></li>
+                            <li><a href="{{route('front.contact-us')}}">Contact Us</a></li>
                         </ul>
                     </nav>
                 </div>

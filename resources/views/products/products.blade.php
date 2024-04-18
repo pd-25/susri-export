@@ -366,9 +366,9 @@
 		</div>
 	</div>
 </section>
-<!-- 
+
     <a href="https://api.whatsapp.com/send?phone=8220026777&text=Hello..." class="float" target="_blank">
 		<i class="fa fa-whatsapp my-float"></i>
-	</a> -->
+	</a>
 
 @endsection

@@ -15,10 +15,6 @@ class AdminController extends Controller
         return view('admin.index');
     }
 
-    // public function index()
-    // {
-    //     return view('admin.dashboard');
-    // }
 
 
 
@@ -97,5 +93,26 @@ class AdminController extends Controller
         $product->save();
         return redirect('/admin-products')->with('message', 'Product Updated Successfully!');
     }
+
+
+    public function login(Request $request)
+    {
+        // Validate login credentials
+        $credentials = $request->validate([
+            'name' => 'required',
+            'password' => 'required',
+        ]);
+    
+        // Attempt to authenticate admin
+        if (auth()->attempt($credentials)) {
+            // Authentication successful
+            return redirect()->route('admin.dashboard');
+        }
+    
+        // Authentication failed
+        return back()->withErrors(['name' => 'Invalid credentials']);
+    }
+    
+    
     
 }

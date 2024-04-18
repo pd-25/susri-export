@@ -9,10 +9,11 @@ class AdminMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
-        if ($request->user() && $request->user()->isAdmin()) {
+        if (auth()->check() && auth()->user()->isAdmin()) {
             return $next($request);
         }
 
-        return redirect('/login');
+        return redirect()->route('admin.logAdmin');
     }
 }
+

@@ -21,6 +21,11 @@ class IndexController extends Controller
         return view('front.aboutus');
     }
 
+    public function contactUs()
+    {
+        return view('front.contactus');
+    }
+
     public function ourProducts()
     {
         $products = Product::all();
@@ -30,7 +35,8 @@ class IndexController extends Controller
 
     public function show($id)
     {
+        $products = Product::all();
         $product = Product::findOrFail($id); // Changed $products to $product for singular item
-        return view('products.singleProductt', compact('product')); // The view path should match
+        return view('products.singleProductt', compact('product','products')); // The view path should match
     }
 }

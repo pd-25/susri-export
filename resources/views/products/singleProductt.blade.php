@@ -385,62 +385,19 @@
             <div class="col-lg-12 mb-4">
                 <div id="demo-pranab">
                     <div id="owl-product" class="owl-carousel owl-theme">
+                        @foreach ($products as $product)
                         <div class="item">
                             <div class="product-box">
                                 <div class="product-box-img">
-                                    <img src="{{asset('front/images/pro-img.jpg')}}" class="img-fluid">
+                                    <img src="{{ asset('uploads/products/'.$product->image) }}" class="img-fluid">
                                 </div>
                                 <div class="product-box-ctn">
-                                    <h4>Sheep Leather Gloves</h4>
-                                    <a href="" class="rm-btn-sm">View Details</a>
+                                    <h4>{{$product->name}}</h4>
+                                    <a href="{{ route('products.show', $product->id) }}" class="rm-btn-sm">View Details</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="product-box">
-                                <div class="product-box-img">
-                                    <img src="{{asset('front/images/pro-img.jpg')}}" class="img-fluid">
-                                </div>
-                                <div class="product-box-ctn">
-                                    <h4>Sheep Leather Gloves</h4>
-                                    <a href="" class="rm-btn-sm">View Details</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="product-box">
-                                <div class="product-box-img">
-                                    <img src="{{asset('front/images/pro-img.jpg')}}" class="img-fluid">
-                                </div>
-                                <div class="product-box-ctn">
-                                    <h4>Sheep Leather Gloves</h4>
-                                    <a href="" class="rm-btn-sm">View Details</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="product-box">
-                                <div class="product-box-img">
-                                    <img src="{{asset('front/images/pro-img.jpg')}}" class="img-fluid">
-                                </div>
-                                <div class="product-box-ctn">
-                                    <h4>Sheep Leather Gloves</h4>
-                                    <a href="" class="rm-btn-sm">View Details</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="product-box">
-                                <div class="product-box-img">
-                                    <img src="{{asset('front/images/pro-img.jpg')}}" class="img-fluid">
-                                </div>
-                                <div class="product-box-ctn">
-                                    <h4>Sheep Leather Gloves</h4>
-                                    <a href="" class="rm-btn-sm">View Details</a>
-                                </div>
-                            </div>
-                        </div>
-
+                        @endforeach
                     </div>
 
                 </div>
@@ -448,5 +405,70 @@
         </div>
     </div>
 </section>
-
+<script src="js/script.js" defer></script>
+	<script src="owl-carousel/js/owl.carousel.js"></script>
+	<!-- End Owl pranab-->
+	<script>
+		$(document).ready(function () {
+			var owl = $('#owl-product');
+			owl.owlCarousel({
+				items: 4,
+				loop: true,
+				nav: false,
+				margin: 20,
+				autoplay: true,
+				autoplayTimeout: 2000,
+				autoplayHoverPause: true,
+				responsive: {
+					0: {
+						items: 1
+					},
+					600: {
+						items: 2
+					},
+					1000: {
+						items: 4
+					}
+				}
+			});
+			$('.play').on('click', function () {
+				owl.trigger('play.owl.autoplay', [2000])
+			})
+			$('.stop').on('click', function () {
+				owl.trigger('stop.owl.autoplay')
+			})
+		})
+	</script>
+	<script>
+		$(document).ready(function () {
+			var owl = $('#owl-single-product');
+			owl.owlCarousel({
+				items: 1,
+				loop: true,
+				nav: true,
+				margin: 0,
+				dots: false,
+				autoplay: true,
+				autoplayTimeout: 3000,
+				autoplayHoverPause: true,
+				responsive: {
+					0: {
+						items: 1
+					},
+					600: {
+						items: 1
+					},
+					1000: {
+						items: 1
+					}
+				}
+			});
+			$('.play').on('click', function () {
+				owl.trigger('play.owl.autoplay', [2000])
+			})
+			$('.stop').on('click', function () {
+				owl.trigger('stop.owl.autoplay')
+			})
+		})
+	</script>
 @endsection

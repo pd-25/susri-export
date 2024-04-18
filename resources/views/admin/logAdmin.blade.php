@@ -6,7 +6,7 @@
         <div class="logo-admin d-flex justify-content-center align-items-center mt-3">
             <img src="https://cdn.sanity.io/images/kts928pd/production/b46a6970cc0f064f5ba5d6370077c7f2e18dbb0f-1200x630.png" class="rounded" alt="logo" width="280px">
         </div>
-        <form action="" method="POST" class="admin-login-form d-flex  flex-column">
+        <form action="{{ route('admin.login') }}" method="POST" class="admin-login-form d-flex  flex-column">
             @csrf
             <label for="name" class="label-class" style="font-weight: 600; font-size:1.2rem">Username</label>
             <input class="adminlogin-input" type="text" id="name" name="name" placeholder="Enter Username" required /><br />
