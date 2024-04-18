@@ -31,11 +31,15 @@
 					<div class="col-lg-3">
 						<div class="product-box">
 							<div class="product-box-img">
-								<img src="{{ asset('uploads/products/'.$product->image) }}" class="img-fluid">
+								@if(!empty($product->image) && count($product->image) > 0)
+								<img src="{{ asset($product->image[0]) }}" class="img-fluid" alt="img">
+								@else
+								<img src="{{ asset('/uploads/products/no-image-icon-6.png') }}" class="img-fluid" alt="static-img">
+								@endif
 							</div>
 							<div class="product-box-ctn">
 								<h4>{{$product->name}}</h4>
-								<a href="{{ route('products.show', $product->id) }}" class="rm-btn-sm">View Details</a>
+								<a href="{{ route('products.show', $product->slug) }}" class="rm-btn-sm">View Details</a>
 							</div>
 						</div>
 					</div>
@@ -367,8 +371,8 @@
 	</div>
 </section>
 
-    <a href="https://api.whatsapp.com/send?phone=8220026777&text=Hello..." class="float" target="_blank">
-		<i class="fa fa-whatsapp my-float"></i>
-	</a>
+<a href="https://api.whatsapp.com/send?phone=8220026777&text=Hello..." class="float" target="_blank">
+	<i class="fa fa-whatsapp my-float"></i>
+</a>
 
 @endsection

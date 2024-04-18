@@ -1,3 +1,14 @@
+<style>
+    img.uploaded-images {
+    width: 80px !important;
+    height: 60px !important;
+    margin: 4%;
+    border: 1px solid black;
+    border-radius: 4px !important;
+    padding: 5px;
+}
+</style>
+
 <x-adminheader />
 <!-- partial -->
 <div class="main-panel">
@@ -31,7 +42,7 @@
                                             <label for="price">Price</label>
                                             <input type="text" name="price" placeholder="Enter Price" class="form-control mb-2">
                                             <label for="image">Image</label>
-                                            <input type="file" name="image" class="form-control mb-2">
+                                            <input type="file" name="images[]" multiple accept="image/*" class="form-control mb-2">
 
                                             <input type="submit" name="save" class="btn btn-success rounded" value="Save Now">
                                         </form>
@@ -72,7 +83,9 @@
                                             <div class="badge badge-success">Updated</div>
                                         </td>
                                         <td>
-                                            <img src="{{ asset('uploads/products/'.$item->image) }}" width="200px" alt="img">
+                                            @if(!empty($item->image))
+                                            <img src="{{ asset($item->image[0]) }}" width="200px" alt="img">
+                                            @endif
                                         </td>
 
                                         <td class="font-weight-medium">
@@ -98,9 +111,18 @@
                                                                 <label for="price">Price</label>
                                                                 <input type="text" name="price" value="{{$item->price}}" placeholder="Enter Price" class="form-control mb-2">
                                                                 <label for="image">Image</label>
-                                                                <input type="file" name="image" class="form-control mb-2">
+                                                                <input type="file" name="images[]" multiple accept="image/*" class="form-control mb-2">
 
                                                                 <input type="hidden" name="id" value="{{$item->id}}" id="">
+                                                                <div class="row">
+                                                                @if(!empty($item->image))
+                                                                @foreach($item->image as $image)
+                                                                
+                                                                <img class="uploaded-images" src="{{ asset($image) }}" width="200px" alt="img">
+
+                                                                @endforeach
+                                                                @endif
+                                                                </div>
                                                                 <input type="submit" name="save" class="btn btn-success rounded" value="Save Changes">
                                                             </form>
                                                         </div>
@@ -129,3 +151,5 @@
     <!-- content-wrapper ends -->
 
     <x-adminfooter />
+
+

@@ -19,14 +19,22 @@
                 <div id="demo-pranab">
                     <div id="owl-single-product" class="owl-carousel owl-theme">
 
+                        
+                        @if(!empty($product->image))
+                        @foreach($product->image as $image)
                         <div class="item">
-                            <img src="{{ asset('uploads/products/'.$product->image) }}" class="img-fluid">
-                            <a href="{{ route('products.show', $product->id) }}" class="banner-btn">View Details</a>
+                            <img src="{{ asset($image) }}" class="img-fluid">
+
                         </div>
 
+
+                        @endforeach
+                        @endif
                     </div>
+                    <a href="{{ route('products.show', $product->slug) }}" class="banner-btn">View Details</a>
 
                 </div>
+
             </div>
             <div class="col-lg-6 single-pro-ctnbox">
                 <h3 class="mb-4">{{$product->name}}</h3>
@@ -389,11 +397,15 @@
                         <div class="item">
                             <div class="product-box">
                                 <div class="product-box-img">
-                                    <img src="{{ asset('uploads/products/'.$product->image) }}" class="img-fluid">
+                                    @if(!empty($product->image) && count($product->image) > 0)
+                                    <img src="{{ asset($product->image[0]) }}" class="img-fluid" alt="img">
+                                    @else
+                                    <img src="{{ asset('/uploads/products/no-image-icon-6.png') }}" class="img-fluid" alt="static-img">
+                                    @endif
                                 </div>
                                 <div class="product-box-ctn">
                                     <h4>{{$product->name}}</h4>
-                                    <a href="{{ route('products.show', $product->id) }}" class="rm-btn-sm">View Details</a>
+                                    <a href="{{ route('products.show', $product->slug) }}" class="rm-btn-sm">View Details</a>
                                 </div>
                             </div>
                         </div>
@@ -406,69 +418,69 @@
     </div>
 </section>
 <script src="js/script.js" defer></script>
-	<script src="owl-carousel/js/owl.carousel.js"></script>
-	<!-- End Owl pranab-->
-	<script>
-		$(document).ready(function () {
-			var owl = $('#owl-product');
-			owl.owlCarousel({
-				items: 4,
-				loop: true,
-				nav: false,
-				margin: 20,
-				autoplay: true,
-				autoplayTimeout: 2000,
-				autoplayHoverPause: true,
-				responsive: {
-					0: {
-						items: 1
-					},
-					600: {
-						items: 2
-					},
-					1000: {
-						items: 4
-					}
-				}
-			});
-			$('.play').on('click', function () {
-				owl.trigger('play.owl.autoplay', [2000])
-			})
-			$('.stop').on('click', function () {
-				owl.trigger('stop.owl.autoplay')
-			})
-		})
-	</script>
-	<script>
-		$(document).ready(function () {
-			var owl = $('#owl-single-product');
-			owl.owlCarousel({
-				items: 1,
-				loop: true,
-				nav: true,
-				margin: 0,
-				dots: false,
-				autoplay: true,
-				autoplayTimeout: 3000,
-				autoplayHoverPause: true,
-				responsive: {
-					0: {
-						items: 1
-					},
-					600: {
-						items: 1
-					},
-					1000: {
-						items: 1
-					}
-				}
-			});
-			$('.play').on('click', function () {
-				owl.trigger('play.owl.autoplay', [2000])
-			})
-			$('.stop').on('click', function () {
-				owl.trigger('stop.owl.autoplay')
-			})
-		})
-	</script>
+<script src="owl-carousel/js/owl.carousel.js"></script>
+<!-- End Owl pranab-->
+<script>
+    $(document).ready(function() {
+        var owl = $('#owl-product');
+        owl.owlCarousel({
+            items: 4,
+            loop: true,
+            nav: false,
+            margin: 20,
+            autoplay: true,
+            autoplayTimeout: 2000,
+            autoplayHoverPause: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 2
+                },
+                1000: {
+                    items: 4
+                }
+            }
+        });
+        $('.play').on('click', function() {
+            owl.trigger('play.owl.autoplay', [2000])
+        })
+        $('.stop').on('click', function() {
+            owl.trigger('stop.owl.autoplay')
+        })
+    })
+</script>
+<script>
+    $(document).ready(function() {
+        var owl = $('#owl-single-product');
+        owl.owlCarousel({
+            items: 1,
+            loop: true,
+            nav: true,
+            margin: 0,
+            dots: false,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 1
+                },
+                1000: {
+                    items: 1
+                }
+            }
+        });
+        $('.play').on('click', function() {
+            owl.trigger('play.owl.autoplay', [2000])
+        })
+        $('.stop').on('click', function() {
+            owl.trigger('stop.owl.autoplay')
+        })
+    })
+</script>
 @endsection

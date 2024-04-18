@@ -14,15 +14,15 @@ class IndexController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('front.index',compact('products'));
+        return view('front.index', compact('products'));
     }
 
     public function aboutUs()
     {
         return view('front.aboutus');
     }
-    
-    
+
+
 
     public function contactUs()
     {
@@ -36,14 +36,28 @@ class IndexController extends Controller
         // return view('products.products');
     }
 
-    public function show($id)
+    // public function show($slug)
+    // {
+    //     $products = Product::all();
+    //     $product = Product::findOrFail($slug); // Changed $products to $product for singular item
+    //     return view('products.singleProductt', compact('product','products')); // The view path should match
+    // }
+
+    public function show($slug)
     {
+        // Retrieve the product with the given slug
+        $product = Product::where('slug', $slug)->firstOrFail();
+
+        // You may want to pass all products for related products or similar functionality
         $products = Product::all();
-        $product = Product::findOrFail($id); // Changed $products to $product for singular item
-        return view('products.singleProductt', compact('product','products')); // The view path should match
+
+        // Return the view with the product details
+        return view('products.singleProductt', compact('product', 'products'));
     }
 
-    public function adminlogin(){
+
+    public function adminlogin()
+    {
         return view('admin.logAdmin');
     }
 }

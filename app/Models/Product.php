@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $fillable = ['name', 'description', 'price', 'image'];
+    use HasFactory;
+
+    protected $fillable = ['name', 'description', 'price', 'image', 'slug'];
+
+    protected $casts = [
+        'image' => 'array', // Cast the 'image' attribute to an array
+    ];
+
     protected $table = 'products';
 }
