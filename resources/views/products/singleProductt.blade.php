@@ -18,12 +18,12 @@
             <div class="col-lg-6">
                 <div id="demo-pranab">
                     <div id="owl-single-product" class="owl-carousel owl-theme">
-                        @foreach($products as $product)
+
                         <div class="item">
                             <img src="{{ asset('uploads/products/'.$product->image) }}" class="img-fluid">
                             <a href="{{ route('products.show', $product->id) }}" class="banner-btn">View Details</a>
                         </div>
-                        @endforeach
+
                     </div>
 
                 </div>

@@ -6,19 +6,17 @@
         <div class="logo-admin d-flex justify-content-center align-items-center mt-3">
             <img src="https://cdn.sanity.io/images/kts928pd/production/b46a6970cc0f064f5ba5d6370077c7f2e18dbb0f-1200x630.png" class="rounded" alt="logo" width="280px">
         </div>
-        <form action="/loginadmin" method="POST" class="admin-login-form d-flex  flex-column">
+        <form action="" method="POST" class="admin-login-form d-flex  flex-column">
             @csrf
-            <label for="username" class="label-class" style="font-weight: 600; font-size:1.2rem">Username</label>
-            <input class="adminlogin-input" type="text" id="username" name="username" placeholder="Enter Username" required /><br />
-            <span class="error text-danger username_err"></span><br />
+            <label for="name" class="label-class" style="font-weight: 600; font-size:1.2rem">Username</label>
+            <input class="adminlogin-input" type="text" id="name" name="name" placeholder="Enter Username" required /><br />
+
 
             <label for="password" class="label-class" style="font-weight: 600; font-size:1.2rem">Password</label>
             <input class="adminlogin-input" type="password" id="password" name="password" placeholder="Enter Password" /><br />
 
-            <div class="remember-me d-flex justify-content-start align-items-center pb-3">
-                <input type="checkbox" id="check1" /> &nbsp;
-                <label for="check1" class="label-class" style="font-weight: 600; font-size:1.2rem">Remember me</label>
-            </div>
+
+
             <button type="submit" class="btn btn-primary submit-btn submit-admin p-2" style="font-weight: 600; font-size:1.2rem">Login</button>
         </form>
 

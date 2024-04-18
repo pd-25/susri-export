@@ -28,16 +28,9 @@ class IndexController extends Controller
         return view('products.products');
     }
 
-    public function singleproduct($id)
+    public function show($id)
     {
-        $product = Product::find($id);
-        return view('singleproduct', compact('product'));
+        $product = Product::findOrFail($id); // Changed $products to $product for singular item
+        return view('products.singleProductt', compact('product')); // The view path should match
     }
-
-    public function adminlogin()
-    {
-        return view('admin.logAdmin');
-    }
-
-
 }

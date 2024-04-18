@@ -35,7 +35,7 @@
 							</div>
 							<div class="product-box-ctn">
 								<h4>{{$product->name}}</h4>
-								<a href="/product/{{ $product->id }}" class="rm-btn-sm">View Details</a>
+								<a href="{{ route('products.show', $product->id) }}" class="rm-btn-sm">View Details</a>
 							</div>
 						</div>
 					</div>
